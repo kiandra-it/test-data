@@ -1,0 +1,15 @@
+﻿﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>TestData.Web</id>
+    <title>TestData.Web</title>
+    <version>$version$</version>
+    <authors>Sam Critchley</authors>
+    <owners></owners>
+    <licenseUrl>http://kiandra.com.au</licenseUrl>
+    <projectUrl>http://kiandra.com.au</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description></description>
+    <releaseNotes></releaseNotes>
+  </metadata>
+</package>
