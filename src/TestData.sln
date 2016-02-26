@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData", "TestData\TestData.csproj", "{D7AC0CEF-B9F6-49ED-80CA-5EE669C3207B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Interface", "TestData.Interface\TestData.Interface.csproj", "{D7AC0CEF-B9F6-49ED-80CA-5EE669C3207B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Web", "TestData.Web\TestData.Web.csproj", "{FE4C36E8-007B-4694-9CA9-0612187AA678}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Interface.Web", "TestData.Interface.Web\TestData.Interface.Web.csproj", "{FE4C36E8-007B-4694-9CA9-0612187AA678}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

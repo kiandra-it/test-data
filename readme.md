@@ -3,13 +3,13 @@
 ## Install Core
 
 ```
-Install-Package TestData
+Install-Package TestData.Interface
 ```
 
 ## Web Api Support
 
 ```
-Install-Package TestData.Web
+Install-Package TestData.Interface.Web
 ```
 
 ## DataSets
