@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TestData.Web")]
-[assembly: AssemblyDescription("Web api support for test-data data-sets")]
+[assembly: AssemblyDescription("Web api support for test-data data-sets. Source is here - https://github.com/worldspawn/TestData")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sam Critchley")]
 [assembly: AssemblyProduct("TestData.Web")]

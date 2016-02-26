@@ -1,0 +1,34 @@
+{
+  "name": "test-data",
+  "version": "0.0.1",
+  "authors": [
+    "Sam Critchley <sam.critchley@kiandra.com.au>"
+  ],
+  "description": "testdata component",
+  "main": "test-data.min.js",
+  "keywords": [
+    "flagship",
+    "test",
+    "data"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "gulpfile.js",
+    "*.conf.js",
+    "coverage"
+  ],
+  "dependencies": {
+    "angular": "~1.4",
+    "angular-route": "~1.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4"
+  }
+}

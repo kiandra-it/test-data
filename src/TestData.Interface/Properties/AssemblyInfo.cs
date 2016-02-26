@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TestData.Interface")]
-[assembly: AssemblyDescription("Programmer interface for datasets")]
+[assembly: AssemblyDescription("Programmer interface for datasets. Source is here - https://github.com/worldspawn/TestData")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sam Critchley")]
 [assembly: AssemblyProduct("TestData.Interface")]
