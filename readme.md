@@ -20,10 +20,41 @@ Install-Package TestData.Interface.MediatR
 
 ## Angular front end
 
-This is designed to work with the webapi `TestDataController` which uses the attribute route prefix `/api/testdata`.
+This is designed to work with the webapi `TestDataController` which uses the attribute route prefix `/api/testdata`. However you could use any backend provided it accepts and returns data in the expected format.
 
 ```
 bower install test-data --save
+```
+
+TestDataController returns a list of datasets in this format
+
+``` csharp
+descriptors.Select(d => new
+  {
+      Dependencies = d.Dependencies.Select(t => t.FullName),
+      d.Name,
+      d.Description,
+      d.Type.FullName,
+      TypeName = d.Type.Name,
+      Properties = d.Properties.Select(p => new
+      {
+          FieldName = p.MemberInfo.Name,
+          p.Property.Name,
+          p.Property.Description,
+          p.Property.DataType,
+          p.Property.Required
+      })
+  }
+```
+
+DataSet request payloads should match
+
+``` csharp
+public interface IDataSetRequest
+{
+    string DataSet { get; }
+    IDictionary<string, IDictionary<string, string>> Properties { get; }
+}
 ```
 
 ## Configuring your angular application
