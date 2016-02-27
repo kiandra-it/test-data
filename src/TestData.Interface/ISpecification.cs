@@ -1,4 +1,4 @@
-﻿namespace TestData
+﻿namespace TestData.Interface
 {
     public interface ISpecification<in T>
     {

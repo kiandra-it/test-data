@@ -1,6 +1,6 @@
 using System;
 
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class DataSetDependencyAttribute : Attribute

@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using MediatR;
-using TestData.DataSet;
-using TestData.Requests;
+using TestData.Interface.DataSet;
 
-namespace TestData.Web
+namespace TestData.Interface.Web
 {
     [RoutePrefix("api/testdata")]
     public class TestDataController : ApiController
     {
-        private readonly IMediator _mediator;
+        private readonly IDispatcher _dispatcher;
         private static readonly IEnumerable<Type> DataSetTypes;
 
-        public TestDataController(IMediator mediator)
+        public TestDataController(IDispatcher dispatcher)
         {
-            _mediator = mediator;
+            _dispatcher = dispatcher;
         }
 
         static TestDataController()
@@ -54,7 +51,7 @@ namespace TestData.Web
         [Route]
         public async Task<IHttpActionResult> Post([FromBody] DataSetRequest request)
         {
-            return Ok(await _mediator.SendAsync(request));
+            return Ok(await _dispatcher.DispatchAsync(request));
         }
     }
 }

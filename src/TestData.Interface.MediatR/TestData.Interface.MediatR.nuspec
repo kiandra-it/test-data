@@ -8,8 +8,8 @@
     <owners>$author$</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Package providing an abstraction for data sets to be contained and executed.</releaseNotes>
+    <releaseNotes>Added MediatR dispatcher and handler.</releaseNotes>
     <copyright>Copyright 2016</copyright>
-    <tags>testdata testing</tags>
+    <tags>test-data mediatr</tags>
   </metadata>
 </package>

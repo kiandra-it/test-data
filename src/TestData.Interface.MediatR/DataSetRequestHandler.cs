@@ -2,21 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Autofac;
 using MediatR;
-using TestData.DataSet;
-using TestData.Requests;
+using TestData.Interface.DataSet;
 
-namespace TestData.Handler
+namespace TestData.Interface.MediatR
 {
     public class DataSetRequestHandler : IAsyncRequestHandler<DataSetRequest, IEnumerable<string>>
     {
-        private readonly ILifetimeScope _lifetimeScope;
+        private readonly Func<Type, IDataSet> _dataSetResolver;
         private static readonly IEnumerable<Type> DataSetTypes;
 
-        public DataSetRequestHandler(ILifetimeScope lifetimeScope)
+        public DataSetRequestHandler(Func<Type, IDataSet> dataSetResolver)
         {
-            _lifetimeScope = lifetimeScope;
+            _dataSetResolver = dataSetResolver;
         }
 
         static DataSetRequestHandler()
@@ -26,7 +24,7 @@ namespace TestData.Handler
 
         public async Task<IEnumerable<string>> Handle(DataSetRequest message)
         {
-            var container = new DataSetContainer(_lifetimeScope, message.Properties);
+            var container = new DataSetContainer(_dataSetResolver, message.Properties);
             container.AddRange(DataSetTypes);
 
             var messages = await container.Execute(container.DatasetsByType.Keys.First(t => t.FullName == message.DataSet));

@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using CsvHelper;
 
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     public class FileDataSetInstance<T>
     {

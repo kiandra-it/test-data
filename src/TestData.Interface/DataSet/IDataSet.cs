@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     /// <summary>
     /// Do not directly implement this interface

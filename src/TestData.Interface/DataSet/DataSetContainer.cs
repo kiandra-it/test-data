@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Autofac;
 
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     public class DataSetContainer
     {
-        private readonly ILifetimeScope _lifetimeScope;
+        private readonly Func<Type, IDataSet> _dataSetResolver;
         private readonly IDictionary<string, DataSetDescriptor> _datasetsByName = new Dictionary<string, DataSetDescriptor>();
 
         public IDictionary<string, IDictionary<string, string>> Properties { get; set; }
 
         public IDictionary<Type, DataSetDescriptor> DatasetsByType { get; } = new Dictionary<Type, DataSetDescriptor>();
 
-        public DataSetContainer(ILifetimeScope lifetimeScope, IDictionary<string, IDictionary<string, string>> properties = null)
+        public DataSetContainer(Func<Type, IDataSet> dataSetResolver, IDictionary<string, IDictionary<string, string>> properties = null)
         {
-            _lifetimeScope = lifetimeScope;
+            _dataSetResolver = dataSetResolver;
             Properties = properties ?? new Dictionary<string, IDictionary<string, string>>();
         }
 
@@ -62,7 +61,7 @@ namespace TestData.DataSet
         private async Task<IEnumerable<string>> Execute(DataSetDescriptor descriptor)
         {
             var messages = new List<string>();
-            var dataSet =_lifetimeScope.Resolve(descriptor.Type) as IDataSet;
+            var dataSet = _dataSetResolver(descriptor.Type);
             //determine dependencies
             foreach (var dependency in descriptor.Dependencies)
             {

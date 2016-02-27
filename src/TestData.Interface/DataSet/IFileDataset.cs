@@ -1,4 +1,4 @@
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     public interface IFileDataSet<TModel>
         where TModel : class, new()

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     public class DataSetPropertyRequiredSpecification : ISpecification<IDictionary<string, string>>
     {

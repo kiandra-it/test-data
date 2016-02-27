@@ -12,6 +12,52 @@ Install-Package TestData.Interface
 Install-Package TestData.Interface.Web
 ```
 
+## MediatR Support
+
+```
+Install-Package TestData.Interface.MediatR
+```
+
+## Angular front end
+
+This is designed to work with the webapi `TestDataController` which uses the attribute route prefix `/api/testdata`.
+
+```
+bower install test-data --save
+```
+
+## Configuring your angular application
+
+You will need to require the module `test-data` and register a constant called `apiBase`. Do not include a trailing forward slash. This is the base path used to make the request e.g. `/api` becomes `/api/testdata`.
+
+``` js
+angular.module('app', ['test-data'])
+  .constant('apiBase', '/api');
+```
+
+## Configuring for AutoFac and MediatR
+
+``` csharp
+builder
+    .Register(x =>
+    {
+        var scope = x.Resolve<ILifetimeScope>();
+        return new Func<Type, IDataSet>((t) => scope.Resolve(t) as IDataSet);
+    })
+    .InstancePerRequest();
+
+builder
+    .Register(x =>
+    {
+        var mediator = x.Resolve<IMediator>();
+        var dispatcher = new MediatRDispatcher(mediator);
+        return dispatcher;
+    })
+    .InstancePerRequest();
+
+builder.RegisterApiControllers(typeof(TestDataController).Assembly);
+```
+
 ## DataSets
 
 The string returned from a dataset is returned to the client (to be used as feedback).

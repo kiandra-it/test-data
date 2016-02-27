@@ -1,6 +1,6 @@
 using System;
 
-namespace TestData.DataSet
+namespace TestData.Interface.DataSet
 {
     public class DataSetPropertyValidationException : Exception
     {
