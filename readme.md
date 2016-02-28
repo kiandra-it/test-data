@@ -75,24 +75,31 @@ angular.module('app', ['test-data'])
 ## Configuring for AutoFac and MediatR
 
 ``` csharp
-builder
-    .Register(x =>
-    {
-        var scope = x.Resolve<ILifetimeScope>();
-        return new Func<Type, IDataSet>((t) => scope.Resolve(t) as IDataSet);
-    })
-    .InstancePerRequest();
+//Assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().Name.StartsWith("demo") || a.GetName().Name.StartsWith("TestData")).ToArray();
 
-builder
-    .Register(x =>
-    {
-        var mediator = x.Resolve<IMediator>();
-        var dispatcher = new MediatRDispatcher(mediator);
-        return dispatcher;
-    })
-    .InstancePerRequest();
+void RegisterTestData(ContainerBuilder builder)
+{
+    builder.RegisterApiControllers(typeof(TestDataController).Assembly);
+    builder.RegisterTypes(Assemblies.SelectMany(a => a.GetTypes()).Where(x => !x.IsAbstract && typeof(IDataSet).IsAssignableFrom(x)).ToArray());
 
-builder.RegisterApiControllers(typeof(TestDataController).Assembly);
+    builder
+        .Register<Func<Type, IDataSet>>(x =>
+        {
+            var scope = x.Resolve<ILifetimeScope>();
+            return (t) => scope.Resolve(t) as IDataSet;
+        })
+        .InstancePerRequest();
+
+    builder
+        .Register(x =>
+        {
+            var mediator = x.Resolve<IMediator>();
+            var dispatcher = new MediatRDispatcher(mediator);
+            return dispatcher;
+        })
+        .As<IDispatcher>()
+        .InstancePerRequest();
+}
 ```
 
 ## DataSets
