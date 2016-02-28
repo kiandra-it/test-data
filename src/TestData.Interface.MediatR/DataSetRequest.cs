@@ -3,8 +3,6 @@ using MediatR;
 
 namespace TestData.Interface.MediatR
 {
-    
-
     public class DataSetRequest : IAsyncRequest<IEnumerable<string>>, IDataSetRequest
     {
         public string DataSet { get; set; }

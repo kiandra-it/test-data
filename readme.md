@@ -18,15 +18,21 @@ Install-Package TestData.Interface.Web
 Install-Package TestData.Interface.MediatR
 ```
 
+## Csv (FileSets) Support
+
+```
+Install-Package TestData.Interface.Files
+```
+
 ## Angular front end
 
-This is designed to work with the webapi `TestDataController` which uses the attribute route prefix `/api/testdata`. However you could use any backend provided it accepts and returns data in the expected format.
+This is designed to work with the webapi `TestDataController` which uses the attribute route prefix `/api/testdata`. However you could use any backend provided it accepts and returns data in the expected format. The test data UI is served on the client route: `/testdata`.
 
 ```
 bower install test-data --save
 ```
 
-TestDataController returns a list of datasets in this format
+TestDataController returns a list of datasets in this format. It accepts a `get` request with no parameters.
 
 ``` csharp
 descriptors.Select(d => new
@@ -47,7 +53,7 @@ descriptors.Select(d => new
   }
 ```
 
-DataSet request payloads should match
+DataSet request payloads should match below. It makes a `post` request.
 
 ``` csharp
 public interface IDataSetRequest

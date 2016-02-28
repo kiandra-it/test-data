@@ -1,6 +1,6 @@
 using System;
 
-namespace TestData.Interface.DataSet
+namespace TestData.Interface.Files
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class FileDataSetAttribute : Attribute

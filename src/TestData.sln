@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Interface.Web", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Interface.MediatR", "TestData.Interface.MediatR\TestData.Interface.MediatR.csproj", "{C26784EB-4593-4503-87E8-DF589C900E27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demo", "demo\demo.csproj", "{F79EA920-55AE-4961-9445-874D24C573BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Interface.Files", "TestData.Interface.Files\TestData.Interface.Files.csproj", "{0227D39E-906D-4B7C-AF79-D0E1B074C9F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{C26784EB-4593-4503-87E8-DF589C900E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C26784EB-4593-4503-87E8-DF589C900E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C26784EB-4593-4503-87E8-DF589C900E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F79EA920-55AE-4961-9445-874D24C573BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79EA920-55AE-4961-9445-874D24C573BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79EA920-55AE-4961-9445-874D24C573BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79EA920-55AE-4961-9445-874D24C573BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0227D39E-906D-4B7C-AF79-D0E1B074C9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0227D39E-906D-4B7C-AF79-D0E1B074C9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0227D39E-906D-4B7C-AF79-D0E1B074C9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0227D39E-906D-4B7C-AF79-D0E1B074C9F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

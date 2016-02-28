@@ -5,3 +5,4 @@ obj
 packages
 *.nupkg
 pack
+bower_components

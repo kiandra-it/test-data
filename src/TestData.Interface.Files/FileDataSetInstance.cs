@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using CsvHelper;
+using TestData.Interface.DataSet;
 
-namespace TestData.Interface.DataSet
+namespace TestData.Interface.Files
 {
     public class FileDataSetInstance<T>
     {

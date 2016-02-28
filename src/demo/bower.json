@@ -1,0 +1,23 @@
+{
+  "name": "demo",
+  "homepage": "https://github.com/worldspawn/test-data",
+  "authors": [
+    "Sam Critchley <critchley.sj@gmail.com>"
+  ],
+  "description": "test-data demo",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "test-data": "~0.0.1",
+    "bootstrap": "~3.3.6"
+  }
+}

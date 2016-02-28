@@ -9,7 +9,15 @@ namespace TestData.Interface.DataSet
     public class DataSetContainer
     {
         private readonly Func<Type, IDataSet> _dataSetResolver;
+        public static readonly List<IDescriptorExtension> DescriptorExtensions = new List<IDescriptorExtension>();
         private readonly IDictionary<string, DataSetDescriptor> _datasetsByName = new Dictionary<string, DataSetDescriptor>();
+
+        static DataSetContainer()
+        {
+            var extensionTypes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(x => x.GetTypes().Where(t => !t.IsAbstract && typeof (IDescriptorExtension).IsAssignableFrom(t)));
+            DescriptorExtensions.AddRange(extensionTypes.Select(Activator.CreateInstance).Cast<IDescriptorExtension>());
+        }
 
         public IDictionary<string, IDictionary<string, string>> Properties { get; set; }
 
@@ -23,8 +31,7 @@ namespace TestData.Interface.DataSet
 
         public static IEnumerable<Type> DiscoverDataSets()
         {
-            return DiscoverDataSets(AppDomain.CurrentDomain.GetAssemblies()
-                .Where(a => a.FullName.Contains(".Tests")));
+            return DiscoverDataSets(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         public static IEnumerable<Type> DiscoverDataSets(IEnumerable<Assembly> assemblies)
@@ -68,12 +75,7 @@ namespace TestData.Interface.DataSet
                 var dependencySetDescriptor = DatasetsByType[dependency];
                 messages.AddRange(await Execute(dependencySetDescriptor));
             }
-
-            foreach (var fileDependency in descriptor.FileDependencies)
-            {
-                fileDependency.MemberInfo.SetValue(dataSet, fileDependency.Instance);
-            }
-
+            
             foreach (var property in descriptor.Properties)
             {
                 if (Properties.ContainsKey(descriptor.Type.FullName))
@@ -91,6 +93,11 @@ namespace TestData.Interface.DataSet
                 {
                     throw new DataSetPropertyValidationException($"The property {property.Property.Name} must have a value");
                 }
+            }
+
+            foreach (var e in DescriptorExtensions)
+            {
+                e.Apply(dataSet, descriptor.ExtensionObjects[e.GetType()]);
             }
 
             messages.Add(await dataSet.Execute());

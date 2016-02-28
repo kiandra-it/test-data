@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Split off file classes into own package.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>testdata test data files csv</tags>
+  </metadata>
+</package>
