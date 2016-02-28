@@ -5,7 +5,7 @@
   </ul>
 
   <div ng-if="selectedDataSet">
-    <form class="form-horizontal" name="{{'form_' + selectedDataSet.fullName}}" role="form" ng-submit="submit(selectedDataSet)">
+    <form class="form-horizontal" name="{{'form_' + selectedDataSet.fullName}}" role="form" ng-submit="submit(selectedDataSet)" novalidate>
       <legend ng-init="form = this['form_' + selectedDataSet.fullName]">{{::ds.name}}</legend>
       <p>{{selectedDataSet.description}}</p>
       <div ng-if="selectedDataSet.dependencies.length > 0">

@@ -54,7 +54,7 @@
         expect(scope.datasets['Template.Tests.DataSets.StateDataSet']).toEqual(dataSetPayload[1]);
       }));
 
-      it('should submit its dataset request and report messages', inject(function ($rootScope, $controller, $httpBackend, $window) {
+      it('should submit its dataset request and report messages', inject(function ($rootScope, $controller, $httpBackend, testdataAlertService) {
         $httpBackend.expectGET('api/testdata').respond(200, dataSetPayload);
 
         var scope = $rootScope.$new();
@@ -65,7 +65,7 @@
 
         $httpBackend.flush();
 
-        spyOn($window, 'alert');
+        spyOn(testdataAlertService, 'addMessage');
         $httpBackend.expectPOST('api/testdata').respond(200, ['Inserted 1 State']);
         scope.models['Template.Tests.DataSets.StateDataSet'] = {
           'Count': 1
@@ -73,7 +73,7 @@
         scope.submit(scope.datasets['Template.Tests.DataSets.StateDataSet']);
         $httpBackend.flush();
 
-        expect($window.alert).toHaveBeenCalledWith('DataSet Complete - Inserted 1 State', 'success');
+        expect(testdataAlertService.addMessage).toHaveBeenCalledWith('DataSet Complete - Inserted 1 State', 'success');
       }));
 
       it('should build list of relevent datasets when dataset is selected', inject(function ($rootScope, $controller, $httpBackend) {

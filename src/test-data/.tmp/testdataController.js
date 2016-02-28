@@ -2,7 +2,14 @@
   'use strict';
 
   angular.module('test-data')
-    .controller('testdataController', ['$scope', '$http', 'apiBase', '$window', function ($scope, $http, apiBase, $window) {
+    .service('testdataAlertService', ['$window', function ($window) {
+      return {
+        addMessage: function (message) {
+          $window.alert(message);
+        }
+      };
+    }])
+    .controller('testdataController', ['$scope', '$http', 'apiBase', 'testdataAlertService', function ($scope, $http, apiBase, testdataAlertService) {
       $scope.models = {};
 
       $http.get(apiBase + '/testdata')
@@ -12,7 +19,7 @@
             $scope.datasets[n.fullName] = n;
           });
         })
-        .error($window.alert);
+        .error(testdataAlertService.addMessage);
 
       function submit(dataSet) {
         var model = {};
@@ -27,9 +34,9 @@
         }))
           .success(function (data) {
             var messages = data.join(', ');
-            $window.alert('DataSet Complete - ' + messages, 'success');
+            testdataAlertService.addMessage('DataSet Complete - ' + messages, 'success');
           })
-          .error($window.alert);
+          .error(testdataAlertService.addMessage);
       }
 
       function selectDataSet(ds) {
