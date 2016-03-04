@@ -1,6 +1,6 @@
 {
   "name": "demo",
-  "homepage": "https://github.com/worldspawn/test-data",
+  "homepage": "https://github.com/kiandra-it/test-data",
   "authors": [
     "Sam Critchley <critchley.sj@gmail.com>"
   ],
@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "test-data": "~0.0.1",
+    "ng-test-data": "~0.0.1",
     "bootstrap": "~3.3.6"
   }
 }
