@@ -70,7 +70,7 @@ gulp.task('prettify-js', function () {
 
 gulp.task('concat', function() {
   return gulp.src(['.tmp/main.js', '.tmp/**/*.js'])
-    .pipe($.concat('test-data.js'))
+    .pipe($.concat('ng-test-data.js'))
     .pipe(gulp.dest('./'))
     .pipe($.size());
 });
@@ -78,7 +78,7 @@ gulp.task('concat', function() {
 gulp.task('compress', function() {
   return gulp.src(['.tmp/main.js', '.tmp/**/*.js'])
     .pipe($.uglify())
-    .pipe($.concat('test-data.min.js'))
+    .pipe($.concat('ng-test-data.min.js'))
     .pipe(gulp.dest('./'))
     .pipe($.size());
 });

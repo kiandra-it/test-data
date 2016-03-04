@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('test-data')
+  angular.module('ngTestData')
     .service('testdataAlertService', function ($window) {
       return {
         addMessage: function (message) {

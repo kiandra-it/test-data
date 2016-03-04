@@ -1,4 +1,4 @@
-angular.module('test-data', ['ngRoute', 'template-partials'])
+angular.module('ngTestData', ['ngRoute', 'template-partials'])
   .config(['$routeProvider', function ($routeProvider) {
     'use strict';
 
@@ -23,7 +23,7 @@ angular.module('test-data', ['ngRoute', 'template-partials'])
 (function () {
   'use strict';
 
-  angular.module('test-data')
+  angular.module('ngTestData')
     .service('testdataAlertService', ['$window', function ($window) {
       return {
         addMessage: function (message) {

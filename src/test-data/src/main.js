@@ -1,4 +1,4 @@
-angular.module('test-data', ['ngRoute', 'template-partials'])
+angular.module('ngTestData', ['ngRoute', 'template-partials'])
   .config(function ($routeProvider) {
     'use strict';
 

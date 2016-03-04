@@ -2,10 +2,10 @@
   /* globals describe, it, beforeEach, inject, expect, spyOn, angular */
   'use strict';
 
-  describe('test-data', function () {
-    angular.module('test-data').constant('apiBase', 'api');
+  describe('ngTestData', function () {
+    angular.module('ngTestData').constant('apiBase', 'api');
 
-    beforeEach(module('test-data'));
+    beforeEach(module('ngTestData'));
 
     describe('testdataController', function () {
       var dataSetPayload = [{

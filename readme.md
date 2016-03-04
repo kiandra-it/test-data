@@ -29,7 +29,7 @@ Install-Package TestData.Interface.Files
 This is designed to work with the webapi `TestDataController` which uses the attribute route prefix `/api/testdata`. However you could use any backend provided it accepts and returns data in the expected format. The test data UI is served on the client route: `/testdata`.
 
 ```
-bower install test-data --save
+bower install ng-test-data --save
 ```
 
 TestDataController returns a list of datasets in this format. It accepts a `get` request with no parameters.
@@ -68,7 +68,7 @@ public interface IDataSetRequest
 You will need to require the module `test-data` and register a constant called `apiBase`. Do not include a trailing forward slash. This is the base path used to make the request e.g. `/api` becomes `/api/testdata`.
 
 ``` js
-angular.module('app', ['test-data'])
+angular.module('app', ['ngTestData'])
   .constant('apiBase', '/api');
 ```
 
